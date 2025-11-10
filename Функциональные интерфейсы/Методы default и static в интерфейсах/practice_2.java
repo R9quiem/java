@@ -17,6 +17,14 @@ class C implements A, B { //ошибка компилятора class C inherits
     //То есть java не знает, какую реализацию использовать (A.show() или B.show()).
 }
 
+class D implements A, B {
+    @Override
+    public void show() {
+        // выход из ситуации: можно выбрать конкретную реализацию
+        A.super.show(); // или B.super.show()
+        System.out.println("Класс C");
+    }
+}
 
 public class Main {
     public static void main(String[] args) {
